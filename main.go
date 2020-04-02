@@ -2,13 +2,14 @@ package main
 
 import (
 	"fmt"
+	"go-stock/models"
 	_ "go-stock/routers"
 
-	models "go-stock/models"
+	_ "go-stock/models"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
-	_ "github.com/mysql"
+	_ "github.com/go-sql-driver/mysql"
 )
 
 func init() {
