@@ -28,5 +28,5 @@ RUN go get github.com/go-sql-driver/mysql
 #  RUN mkdir /app 
  ADD . $GOPATH/src/go-stock 
  WORKDIR $GOPATH/src/go-stock 
-RUN go build -o main.go
 EXPOSE 8080
+entrypoint bee run

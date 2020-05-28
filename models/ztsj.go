@@ -1,4 +1,4 @@
-package models
+﻿package models
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 )
 
 type Ztsj struct {
-	Recid   int64  `json:"recid,string" orm:"column(recid);pk;auto;"`
+	Recid   int    `json:"recid" orm:"column(recid);pk;auto;"`
 	Rq      string `json:"rq" orm:"column(rq)"`
 	Mrztgs  string `json:"mrztgs" orm:"column(mrztgs)"`
 	Fyzbgs  string `json:"fyzbgs" orm:"column(fyzbgs)"`
@@ -69,7 +69,7 @@ func SaveZtsj(z *Ztsj) int64 {
 	return num
 }
 
-func DeleteZtsj(recid int64) int64 {
+func DeleteZtsj(recid int) int64 {
 	//ormer
 	var myOrmer orm.Ormer
 	myOrmer = orm.NewOrm()

@@ -1,4 +1,4 @@
-package controllers
+﻿package controllers
 
 import (
 	"encoding/json"
@@ -42,6 +42,8 @@ func (this *ZtsjController) Index() {
 
 // @router /ztsj/save [post]
 func (this *ZtsjController) Save() {
+	this.Ctx.ResponseWriter.Header().Set("Access-Control-Allow-Origin", this.Ctx.Request.Header.Get("Origin"))
+
 	var ztsj models.Ztsj
 	var err error
 	if err = json.Unmarshal(this.Ctx.Input.RequestBody, &ztsj); err == nil {
@@ -60,7 +62,9 @@ func (this *ZtsjController) Save() {
 
 // @router /ztsj/delete [get]
 func (this *ZtsjController) Delete() {
-	recId, _ := this.GetInt64("recId")
+	this.Ctx.ResponseWriter.Header().Set("Access-Control-Allow-Origin", this.Ctx.Request.Header.Get("Origin"))
+
+	recId, _ := this.GetInt("recId")
 
 	counts := models.DeleteZtsj(recId)
 	if counts > 0 {
